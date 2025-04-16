@@ -108,6 +108,7 @@
         inset 0 0 15px #00fff7;
       display: inline-block;
       transition: transform 0.3s ease;
+      margin-bottom: 1.5em;
     }
 
     #qrcode:hover {
@@ -115,6 +116,32 @@
       box-shadow:
         0 0 25px #00fff7,
         inset 0 0 25px #00fff7;
+    }
+
+    #download-btn {
+      background: #00fff7;
+      border: none;
+      color: #003344;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.75em 2em;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      letter-spacing: 0.1em;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      user-select: none;
+      border-radius: 30px;
+      box-shadow: 0 0 10px #00fff7;
+      display: none; /* Hidden initially */
+      margin-bottom: 2em;
+    }
+
+    #download-btn:hover,
+    #download-btn:focus {
+      background: #00ccbb;
+      color: #001f20;
+      box-shadow: 0 0 20px #00fff7;
+      outline: none;
     }
 
     /* Responsive adjustments */
@@ -144,9 +171,11 @@
     <button id="generate-btn" aria-label="Generate QR Code">Generate</button>
   </div>
   <div id="qrcode" aria-live="polite" aria-atomic="true"></div>
+  <button id="download-btn" aria-label="Download QR Code as PNG">Download QR Code</button>
 
   <!-- Include the QRCode.js library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- Link to external JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
