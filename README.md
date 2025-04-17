@@ -1,7 +1,4 @@
 ﻿# qrcode-maker 
-Here’s a professional and complete README structure for your QR code maker GitHub repo, following best practices and including all key sections: project description, features, installation, usage, changelog, license, and copyright[1][5][6][7][8].
-
----
 
 # Futuristic QR Code Generator
 
@@ -19,11 +16,8 @@ Create stunning, customizable QR codes instantly in your browser. Enter any text
 ---
 
 ## Demo
-
-![Screenshot of QR Code Genetor  
 *Example of the QR code generator in action.*
-
----
+![image](https://github.com/user-attachments/assets/fe6d62e8-46fd-4abd-a8fe-5330bcca2f21)
 
 ## Installation
 
