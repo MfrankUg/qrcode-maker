@@ -15,7 +15,6 @@ Create stunning, customizable QR codes instantly in your browser. Enter any text
 - Live color customization (foreground and background)
 - Download as PNG or JPG
 - Responsive, modern design
-- No dependencies except [QRCode.js](https://github.com/MfrankUg/qrcode-maker)
 
 ---
 
@@ -31,7 +30,7 @@ Create stunning, customizable QR codes instantly in your browser. Enter any text
 Clone the repository:
 
 ```sh
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/MfrankUg/qrcode-maker.git
 cd your-repo-name
 ```
 
