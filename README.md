@@ -40,20 +40,6 @@ No build step or server required.
 3. Use the color pickers to adjust foreground and background colors.
 4. Click **Download PNG** or **Download JPG** to save your QR code.
 
----
-
-## Changelog
-
-- **v1.0** (2025-04-17)
-  - Initial release: Generate, customize, and download QR codes.
-
----
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
----
 
 ## Author
 
