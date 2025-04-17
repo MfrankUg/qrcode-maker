@@ -5,14 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Futuristic QR Code Generator</title>
   <style>
-    /* Reset some default styles */
-    * {
-      box-sizing: border-box;
-    }
-
+    /* ...existing CSS... */
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: #e0e6f8;
@@ -23,183 +19,80 @@
       padding: 20px;
       overflow-x: hidden;
     }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.2em;
-      text-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
-      letter-spacing: 2px;
-    }
-
-    p.description {
-      font-size: 1.25rem;
-      max-width: 480px;
-      margin-bottom: 2em;
-      color: #a0c8ff;
-      text-shadow: 0 0 5px #00b4d8;
-    }
-
-    #input-container {
+    /* ...rest of your CSS... */
+    #color-pickers {
+      margin: 1.5em 0;
       display: flex;
-      width: 100%;
-      max-width: 480px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      box-shadow: 0 0 20px #00ffe7aa;
-      overflow: hidden;
-      margin-bottom: 2em;
-      transition: box-shadow 0.3s ease;
+      gap: 2em;
     }
-
-    #input-container:focus-within {
-      box-shadow: 0 0 30px #00fff7ff;
+    #color-pickers label {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      font-weight: 500;
+      color: #a0c8ff;
     }
-
-    #qr-input {
-      flex: 1;
-      padding: 1em 1.2em;
-      font-size: 1.1rem;
-      border: none;
-      outline: none;
+    #color-pickers input[type="color"] {
+      width: 40px;
+      height: 40px;
+      border: 2px solid #00fff7;
+      border-radius: 8px;
       background: transparent;
-      color: #d0f0ff;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      caret-color: #00fff7;
-      transition: background-color 0.3s ease;
-    }
-
-    #qr-input::placeholder {
-      color: #66c0ffaa;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-    }
-
-    #generate-btn {
-      background: #00fff7;
-      border: none;
-      color: #003344;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 0 1.8em;
       cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-      letter-spacing: 0.1em;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      user-select: none;
-      border-radius: 0 12px 12px 0;
-      box-shadow: 0 0 10px #00fff7;
     }
-
-    #generate-btn:hover,
-    #generate-btn:focus {
-      background: #00ccbb;
-      color: #001f20;
-      box-shadow: 0 0 20px #00fff7;
-      outline: none;
+    #download-buttons {
+      display: none;
+      gap: 1em;
+      margin-top: 1.5em;
     }
-
-    #qrcode {
-      background: #001f20;
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow:
-        0 0 15px #00fff7,
-        inset 0 0 15px #00fff7;
-      display: inline-block;
-      transition: transform 0.3s ease;
-      margin-bottom: 1.5em;
-    }
-
-    #qrcode:hover {
-      transform: scale(1.05);
-      box-shadow:
-        0 0 25px #00fff7,
-        inset 0 0 25px #00fff7;
-    }
-
-    #download-btn {
+    #download-svg, 
+    #download-png, 
+    #download-jpg {
       background: #00fff7;
-      border: none;
-      color: #003344;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 0.75em 2em;
-      cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-      letter-spacing: 0.1em;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      user-select: none;
+      padding: 0.75em 1.5em;
       border-radius: 30px;
+      border: none;
+      color: #003344;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+      letter-spacing: 0.1em;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      user-select: none;
       box-shadow: 0 0 10px #00fff7;
-      display: none; /* Hidden initially */
-      margin-bottom: 2em;
     }
-
-    #download-btn:hover,
-    #download-btn:focus {
+    #download-svg:hover, #download-png:hover, #download-jpg:hover {
       background: #00ccbb;
       color: #001f20;
       box-shadow: 0 0 20px #00fff7;
       outline: none;
     }
-
-    /* Add to CSS */
-#color-pickers {
-  margin: 1.5em 0;
-  display: flex;
-  gap: 2em;
-}
-
-#color-pickers label {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-  font-weight: 500;
-  color: #a0c8ff;
-}
-
-#color-pickers input[type="color"] {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #00fff7;
-  border-radius: 8px;
-  background: transparent;
-  cursor: pointer;
-}
-
-#download-buttons {
-  display: none;
-  gap: 1em;
-  margin-top: 1.5em;
-}
-
-#download-svg, 
-#download-png, 
-#download-jpg {
-  background: #00fff7;
-  padding: 0.75em 1.5em;
-  border-radius: 30px;
-  /* Same hover styles as other buttons */
-}
-
-
-    /* Responsive adjustments */
+    .copyright-footer {
+      margin-top: auto;
+      padding: 1.5em 0 0.5em 0;
+      color: #a0c8ff;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      text-align: center;
+      opacity: 0.8;
+      width: 100%;
+    }
     @media (max-width: 520px) {
       h1 {
         font-size: 2.2rem;
       }
-
       p.description {
         font-size: 1rem;
         max-width: 90vw;
       }
-
       #input-container {
         max-width: 90vw;
       }
+      .copyright-footer {
+        font-size: 0.92rem;
+      }
     }
-
   </style>
 </head>
 <body>
@@ -211,30 +104,28 @@
     <input type="text" id="qr-input" placeholder="Enter text or URL here..." autocomplete="off" />
     <button id="generate-btn" aria-label="Generate QR Code">Generate</button>
   </div>
-  <!-- Add this in the HTML section after the input container -->
-<div id="color-pickers">
-  <label>
-    QR Color: 
-    <input type="color" id="foreground-color" value="#00fff7">
-  </label>
-  <label>
-    Background: 
-    <input type="color" id="background-color" value="#001f20">
-  </label>
-</div>
-
-<div id="download-buttons">
-  <button id="download-svg">Download SVG</button>
-  <button id="download-png">Download PNG</button>
-  <button id="download-jpg">Download JPG</button>
-</div>
-
+  <div id="color-pickers">
+    <label>
+      QR Color: 
+      <input type="color" id="foreground-color" value="#00fff7">
+    </label>
+    <label>
+      Background: 
+      <input type="color" id="background-color" value="#001f20">
+    </label>
+  </div>
   <div id="qrcode" aria-live="polite" aria-atomic="true"></div>
-  <button id="download-btn" aria-label="Download QR Code as PNG">Download QR Code</button>
-
-  <!-- Include the QRCode.js library -->
+  <div id="download-buttons">
+    <button id="download-svg">Download SVG</button>
+    <button id="download-png">Download PNG</button>
+    <button id="download-jpg">Download JPG</button>
+  </div>
+  <!-- QRCode.js and qrcode-svg libraries -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <!-- Link to external JavaScript -->
+  <script src="https://unpkg.com/qrcode-svg@1.5.0/dist/qrcode-svg.js"></script>
   <script src="script.js"></script>
+  <footer class="copyright-footer">
+    &copy; 2025 Made by Frank Muhindo
+  </footer>
 </body>
 </html>
