@@ -67,19 +67,5 @@ This project is licensed under the MIT License. See [LICENSE](LICENSE) for detai
 **Frank**  
 Copyright © Frank 2025
 
----
-
 Feel free to copy, customize, and expand this template for your project!
 
-Citations:
-[1] https://dev.to/abdfnx/how-to-write-a-great-readme-for-your-github-project-in-5-steps-33e5
-[2] https://github.com/Louis3797/awesome-readme-template
-[3] https://gist.github.com/FrancesCoronel/1bfc2d4aecb01a834b46?permalink_comment_id=3368625
-[4] https://worldbank.github.io/template/README.html
-[5] https://everhour.com/blog/github-readme-template/1000
-[6] https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide/
-[7] https://hackernoon.com/5-professional-tips-for-crafting-a-winning-readme
-[8] https://www.thegooddocsproject.dev/template/readme
-
----
-Answer from Perplexity: pplx.ai/share
