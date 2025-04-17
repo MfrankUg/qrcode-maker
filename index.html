@@ -144,6 +144,46 @@
       outline: none;
     }
 
+    /* Add to CSS */
+#color-pickers {
+  margin: 1.5em 0;
+  display: flex;
+  gap: 2em;
+}
+
+#color-pickers label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: 500;
+  color: #a0c8ff;
+}
+
+#color-pickers input[type="color"] {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #00fff7;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+#download-buttons {
+  display: none;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+
+#download-svg, 
+#download-png, 
+#download-jpg {
+  background: #00fff7;
+  padding: 0.75em 1.5em;
+  border-radius: 30px;
+  /* Same hover styles as other buttons */
+}
+
+
     /* Responsive adjustments */
     @media (max-width: 520px) {
       h1 {
@@ -159,6 +199,7 @@
         max-width: 90vw;
       }
     }
+
   </style>
 </head>
 <body>
@@ -170,6 +211,24 @@
     <input type="text" id="qr-input" placeholder="Enter text or URL here..." autocomplete="off" />
     <button id="generate-btn" aria-label="Generate QR Code">Generate</button>
   </div>
+  <!-- Add this in the HTML section after the input container -->
+<div id="color-pickers">
+  <label>
+    QR Color: 
+    <input type="color" id="foreground-color" value="#00fff7">
+  </label>
+  <label>
+    Background: 
+    <input type="color" id="background-color" value="#001f20">
+  </label>
+</div>
+
+<div id="download-buttons">
+  <button id="download-svg">Download SVG</button>
+  <button id="download-png">Download PNG</button>
+  <button id="download-jpg">Download JPG</button>
+</div>
+
   <div id="qrcode" aria-live="polite" aria-atomic="true"></div>
   <button id="download-btn" aria-label="Download QR Code as PNG">Download QR Code</button>
 
