@@ -25,7 +25,7 @@ function generateQRCode() {
   currentFgColor = fgColorInput.value;
   currentBgColor = bgColorInput.value;
 
-  // Clear previous QR code
+ 
   qrCodeContainer.innerHTML = "";
 
   // Create new QR code
